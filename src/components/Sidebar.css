@@ -1,68 +1,115 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
-.logo{
-    width: 100px;
-    object-fit: contain;
-    margin-top:10px;
-    margin-left: 7px;
-    margin-right: 14px;
+.logo {
+  width: 100px;
+  object-fit: contain;
+  margin-top: 10px;
+  margin-left: 7px;
+  margin-right: 14px;
 }
 
-.sidebarIcon{
-    font-size: 24px;
+.sidebarIcon {
+  font-size: 24px;
 }
 
-.searchBar{
+.searchInput {
+  width: 100%;
+  border-radius: 3px;
+  padding: 6px;
+}
+
+.searchIcon {
+  padding: 0px;
+  margin: 8px;
+}
+
+.wishlist {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.basketCount {
+  margin-left: -3px;
+  margin-right: 10px;
+  color: white;
+  font-size: 12px;
+  margin-bottom: 18px;
+}
+
+.nameBar {
+  background: #3eb489;
+  display: grid;
+  grid-template-columns: 1fr 50px 0px 100px;
+  grid-template-rows: auto;
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  font-size: 20px;
+}
+
+.icon-container {
+  grid-area: header;
+  display: flex;
+}
+
+@media screen and (min-width: 650px) {
+  .nameBar {
+    background: #3eb489;
+    height: 50px;
     display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .searchBar {
+    display: flex;
+    margin: 0 15px;
     flex: 1;
     align-items: center;
     border-radius: 5px;
     background: rgb(13, 161, 20);
-    margin-left: 15px;
-}
+  }
 
-.searchInput{
-    width: 100%;
-    border-radius: 3px;
-    padding: 6px;
-}
-
-.searchIcon{
-    padding: 0px;
-    margin: 8px;
-}
-
-.wishlist{
-    display: flex;
-    align-items: center;
-    margin-left: 20px;
-    padding: 2px;
-    font-size: 20px;
-}
-
-.cart{
-    display: flex;
-    align-items: center;
+  .cart {
     margin-left: 20px;
     margin-right: 10px;
-    padding: 2px;
-    font-size: 20px;
+  }
 }
 
-.basketCount{
-    margin-left:-3px;
-    margin-right: 10px;
-    color:white;
-    font-size: 12px;
-    margin-bottom: 18px;
-}
+@media screen and (max-width: 650px) {
+  .searchBar {
+    display: flex;
+    margin: 0 15px;
+  }
 
-@media only screen and(max-width: 650px){
-    .searchBar{
-        display: block;
-        color: black;
-        background-color: red;
-    }
+  .searchBar {
+    grid-area: main;
+  }
+  .wishlist {
+    grid-area: sidebar;
+  }
+  .cart {
+    grid-area: footer;
+  }
+
+  .nameBar {
+    grid-template-columns: 1fr 50px 0px 70px;
+    grid-template-rows: 50px 30px;
+    grid-template-areas:
+      'header  sidebar . footer'
+      'main main main main';
+  }
+
+  .cart {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
 }
